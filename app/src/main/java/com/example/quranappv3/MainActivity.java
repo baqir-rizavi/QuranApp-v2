@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         // getting data
         ayats = jsonHelper.getAllAyats();
+        Log.d("except", "onCreate: " + ayats.size());
 
         // making adapters
         ArrayAdapter suraAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, util.englishSurahNames);
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         paras.setOnItemSelectedListener(this);
         recyclerView.setAdapter(ayatRecyclerViewAdapter);
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
